@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
+import { Redirect } from 'wouter'
 import { Navbar } from '../../components/Navbar'
 import { Player } from '../../components/Player'
+import { AuthContext } from '../../context/AuthContext'
 
 const HomeLayout = styled.div`
   background-color: var(--background-color);
@@ -73,6 +76,11 @@ const Feed = styled.div`
 `
 
 const HomePage = () => {
+
+  // TODO: Envolver en una Ruta Protegida para replicar en todas las rutas de la app
+  const { isLogged } = useContext(AuthContext)
+  if(!isLogged) return <Redirect to="/login" />
+
   return (
     <HomeLayout>
       <HomeContainer>
