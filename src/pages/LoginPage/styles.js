@@ -21,5 +21,5 @@ export const LoginButton = styled.a`
   font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text-accent-color);
 `

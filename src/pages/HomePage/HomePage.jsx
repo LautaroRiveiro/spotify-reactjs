@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Navbar } from '../../components/Navbar'
+import { Player } from '../../components/Player'
 
 const HomeLayout = styled.div`
   background-color: var(--background-color);
@@ -8,31 +10,23 @@ const HomeLayout = styled.div`
   color: var(--text-color);
 `
 
-const Player = styled.footer`
-  height: 75px;
-  border: 1px solid var(--primary-color);
-  display: flex;
-
-  & div {
-    flex: 1 0 0;
-    border: 1px solid var(--primary-color);
-  }
-`
-
 const Sidebar = styled.aside`
   flex: 1 1 0;
   border: 1px solid var(--primary-color);
   display: flex;
   flex-direction: column;
+  background-color: var(--background-color-dark);
+`
 
-  & nav {
-    border: 1px solid var(--primary-color);
-  }
+const Logo = styled.img`
+  width: 80%;
+  max-width: 150px;
+  padding: 1rem;
+`
 
-  & section {
-    flex-grow: 1;
-    border: 1px solid var(--primary-color);
-  }
+const PlaylistsSection = styled.section`
+  flex-grow: 1;
+  border: 1px solid var(--primary-color);
 `
 
 const HomeContainer = styled.main`
@@ -47,13 +41,30 @@ const FeedContainer = styled.section`
   border: 1px solid var(--primary-color);
   display: flex;
   flex-direction: column;
+  position: relative;
 `
 
 const Topbar = styled.div`
-  height: 25px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50px;
   border: 1px solid var(--primary-color);
+  background-color: rgba(25, 20, 20,0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+
+  & div {
+    background-color: rgba(25, 20, 20,0.9);
+    padding: 0.5rem;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+  }
 `
 
 const Feed = styled.div`
@@ -66,37 +77,27 @@ const HomePage = () => {
     <HomeLayout>
       <HomeContainer>
         <Sidebar>
-          <nav>
-            <div>Inicio</div>
-            <div>Buscar</div>
-            <div>Tu biblioteca</div>
-            <hr />
-            <div>Crear playlist</div>
-            <div>Tus me gusta</div>
-          </nav>
-          <section>
+          <Logo src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
+          <Navbar />
+          <PlaylistsSection>
             {
-              ['Playlist1', 'Nueva', ''].map((playlist)=>(
-                <div>{playlist}</div>
+              ['Playlist1', 'Nueva', ''].map((playlist, index) => (
+                <div key={index}>{playlist}</div>
               ))
             }
-          </section>
+          </PlaylistsSection>
         </Sidebar>
         <FeedContainer>
           <Topbar>
-            <div>Navegación</div>
-            <div>Usuario</div>
+            <div>🔙</div>
+            <div>👤</div>
           </Topbar>
           <Feed>
             HomePage
           </Feed>
         </FeedContainer>
       </HomeContainer>
-      <Player>
-        <div></div>
-        <div></div>
-        <div></div>
-      </Player>
+      <Player />
     </HomeLayout>
   )
 }
