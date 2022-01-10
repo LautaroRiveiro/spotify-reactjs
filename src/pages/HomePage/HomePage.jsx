@@ -73,6 +73,11 @@ const Topbar = styled.div`
 const Feed = styled.div`
   flex-grow: 1;
   border: 1px solid var(--primary-color);
+  height: 0; // WOOOW
+  overflow-y: overlay;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const HomePage = () => {
