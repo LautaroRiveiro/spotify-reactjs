@@ -1,22 +1,5 @@
 import SpotifyWebApi from '../plugins/spotify-web-api'
 
+// TODO: Tiene sentido esto? Quiero poder acceder al SpotifyWebApi inicializado
 const spotifyApi = new SpotifyWebApi()
-
-export const initApi = (token)=>{
-  spotifyApi.setAccessToken(token)
-}
-
-export const getArtistAlbums = ()=>{
-  spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE').then(
-    function (data) {
-      console.log('Artist albums', data);
-    },
-    function (err) {
-      console.error(err);
-    }
-  );
-}
-
-
-
-//s.searchTracks()...
+export default spotifyApi
