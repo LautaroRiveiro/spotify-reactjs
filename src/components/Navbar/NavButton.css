@@ -1,0 +1,7 @@
+/* Es un workaround para dar estilo a la ruta activa porque no sé como combinar
+ el isActive del NavLink de react-router-dom con styled-components */
+.active {
+  background-color: var(--background-color);
+  color: var(--text-accent-color);
+  border-radius: 5px;
+}

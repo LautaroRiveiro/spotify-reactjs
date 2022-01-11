@@ -1,18 +1,15 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import './NavButton.css'
 
-const Button = styled.div`
+const StyledNavLink = styled(NavLink)`
   transition: 200ms color ease-in;
   display:flex;
   line-height: 1.2em;
   vertical-align: middle;
   padding: 0.5rem;
-  cursor: pointer;
-
-  & a {
-    color: inherit;
-    text-decoration: inherit;
-  }
+  color: inherit;
+  text-decoration: none;
 
   & span:first-child {
     flex: 1 1 0;
@@ -27,11 +24,9 @@ const Button = styled.div`
 
 const NavButton = ({ title, icon, to }) => {
   return (
-    <Link to={to}>
-        <Button>
+    <StyledNavLink isActive to={to}>
         <span>{icon}</span> <span>{title}</span>
-    </Button>
-      </Link>
+    </StyledNavLink >
   )
 }
 export default NavButton
