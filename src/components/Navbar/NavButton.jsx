@@ -25,7 +25,7 @@ const StyledNavLink = styled(NavLink)`
 
 const NavButton = ({ title, icon, to }) => {
   return (
-    <StyledNavLink isActive to={to}>
+    <StyledNavLink to={to}>
         <span>{icon}</span> <span>{title}</span>
     </StyledNavLink >
   )

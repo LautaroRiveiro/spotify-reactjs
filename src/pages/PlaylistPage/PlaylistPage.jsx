@@ -67,15 +67,6 @@ const TracklistGrid = styled.div`
 const TracklistHeader = styled.div`
   text-transform: uppercase;
 `
-const TracklistRow = styled(Fragment)`
-  /* grid-column-start: 1; */
-  /* grid-column-end: 7; */
-  /* display: grid; */
-  /* grid-template-columns: 2rem repeat(5, 1fr); */
-  & :hover {
-    background-color: blue;
-  }
-`
 
 const TracklistRowAlbum = styled.div`
   display: flex;
@@ -95,7 +86,7 @@ const TracklistRowAlbum = styled.div`
 
 const Track = ({ data }) => {
   return (
-    <TracklistRow>
+    <>
       <span>▶</span>
       <div>
         <TracklistRowAlbum>
@@ -116,7 +107,7 @@ const Track = ({ data }) => {
       <span>
         1:23
       </span>
-    </TracklistRow>
+    </>
   )
 }
 
@@ -175,7 +166,7 @@ const PlaylistPage = () => {
               <TracklistHeader>🕒</TracklistHeader>
               {
                 playlist.tracks.map((track) => (
-                  <Track data={track} />
+                  <Track data={track} key={track.track.id} />
                 ))
               }
         </TracklistGrid>
