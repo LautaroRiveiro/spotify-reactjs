@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { Redirect } from 'wouter'
+import { Outlet, Navigate } from "react-router-dom"
 import { Navbar } from '../../components/Navbar'
 import { Player } from '../../components/Player'
 import { AuthContext } from '../../context/AuthContext'
@@ -22,7 +22,7 @@ console.log("APPLICATION PAGE")
     }
   }, [isLogged])
 
-  if (!isLogged) return <Redirect to="/login" />
+  if (!isLogged) return <Navigate to="/login" />
 
   return (
     <HomeLayout>
@@ -44,7 +44,7 @@ console.log("APPLICATION PAGE")
             <div>👤</div>
           </Topbar>
           <Feed>
-            {children}
+          <Outlet />
           </Feed>
         </FeedContainer>
       </HomeContainer>
