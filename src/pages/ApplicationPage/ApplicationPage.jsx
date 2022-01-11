@@ -1,12 +1,13 @@
 import { useContext, useEffect } from 'react'
 import { Outlet, Navigate } from "react-router-dom"
 import { Navbar } from '../../components/Navbar'
+import { Topbar } from '../../components/Topbar'
 import { Player } from '../../components/Player'
 import { AuthContext } from '../../context/AuthContext'
 import spotifyApi from '../../services/services'
-import { Feed, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, Topbar } from './styles'
+import { Feed, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar } from './styles'
 
-const ApplicationPage = ({children}) => {
+const ApplicationPage = () => {
 console.log("APPLICATION PAGE")
   // TODO: Envolver en una Ruta Protegida para replicar en todas las rutas de la app
   const { isLogged } = useContext(AuthContext)
@@ -39,10 +40,7 @@ console.log("APPLICATION PAGE")
           </PlaylistsSection>
         </Sidebar>
         <FeedContainer>
-          <Topbar>
-            <div>🔙</div>
-            <div>👤</div>
-          </Topbar>
+          <Topbar />
           <Feed>
           <Outlet />
           </Feed>

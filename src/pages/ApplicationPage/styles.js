@@ -42,29 +42,6 @@ export const FeedContainer = styled.section`
   position: relative;
 `
 
-export const Topbar = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 50px;
-  border: 1px solid var(--primary-color);
-  background-color: rgba(25, 20, 20,0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-
-  & div {
-    background-color: rgba(25, 20, 20,0.9);
-    padding: 0.5rem;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-  }
-`
-
 export const Feed = styled.div`
   flex-grow: 1;
   border: 1px solid var(--primary-color);
