@@ -10,10 +10,7 @@ const Navbar = () => {
     <NavbarContainer>
       <NavButton title="Inicio" icon="🏠" to="" />
       <NavButton title="Buscar" icon="🔍" to="search" />
-      <NavButton title="Tu biblioteca" icon="📚" to="collection" />
-      <br />
-      <NavButton title="Crear playlist" icon="➕" to="collection/create" />
-      <NavButton title="Tus me gusta" icon="🤍" to="favourites" />
+      <NavButton title="Favoritos" icon="⭐" to="favourites" />
     </NavbarContainer>
   )
 }

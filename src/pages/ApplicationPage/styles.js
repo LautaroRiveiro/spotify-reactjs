@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HomeLayout = styled.div`
@@ -25,6 +26,24 @@ export const Logo = styled.img`
 export const PlaylistsSection = styled.section`
   flex-grow: 1;
   border: 1px solid var(--primary-color);
+  display:flex;
+  flex-direction: column;
+  height: 0;
+  overflow-y: overlay;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+export const PlaylistsSectionItem = styled(Link)`
+  padding: 0.3rem 0.5rem;
+  transition: 200ms color ease-in;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--text-accent-color);
+  }
 `
 
 export const HomeContainer = styled.main`

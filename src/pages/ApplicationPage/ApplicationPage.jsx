@@ -1,29 +1,35 @@
-import { useContext, useEffect } from 'react'
-import { Outlet, Navigate, Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { Link, Outlet } from "react-router-dom"
 import { Navbar } from '../../components/Navbar'
-import { Topbar } from '../../components/Topbar'
 import { Player } from '../../components/Player'
-import { AuthContext } from '../../context/AuthContext'
-import spotifyApi from '../../services/services'
-import { Feed, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar } from './styles'
+import { Topbar } from '../../components/Topbar'
+import spotifyApi, { getMyPlaylist } from '../../services/services'
+import { Feed, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, PlaylistsSectionItem } from './styles'
 
 const ApplicationPage = () => {
-console.log("APPLICATION PAGE")
-  // TODO: Envolver en una Ruta Protegida para replicar en todas las rutas de la app
-  const { isLogged } = useContext(AuthContext)
+  console.log("APPLICATION PAGE")
+
+  const [myPlaylists, setMyPlaylists] = useState([])
 
   useEffect(() => {
-    // TODO: No sé cómo evitar que se efectúe el fetch si no está logueado, sin volver a validar isLogged. Será que está bien, pero que con un wrapper de RutaProtegida entonces queda más prolijo?
-    console.log("USE EFFECT")
-    if (isLogged) {
-      spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
-        .then((resp) => {
-          console.log({ resp })
-        })
-    }
-  }, [isLogged])
-
-  if (!isLogged) return <Navigate to="/login" />
+    spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+      .then((resp) => {
+        console.log('getArtistAlbums', resp)
+      })
+    getMyPlaylist()
+      .then((data) => {
+        console.log('getMyPlaylist', data)
+        setMyPlaylists(data.items)
+      })
+    // spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+    //   .then((resp) => {
+    //     console.log('getArtistAlbums', resp)
+    //   })
+    // spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+    //   .then((resp) => {
+    //     console.log('getArtistAlbums', resp)
+    //   })
+  }, [])
 
   return (
     <HomeLayout>
@@ -33,10 +39,13 @@ console.log("APPLICATION PAGE")
             <Logo src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
           </Link>
           <Navbar />
+          <hr />
           <PlaylistsSection>
             {
-              ['Playlist1', 'Nueva', ''].map((playlist, index) => (
-                <div key={index}>{playlist}</div>
+              myPlaylists.map(({id, name}) => (
+                <PlaylistsSectionItem key={id} to={`playlist/${id}`}>
+                  {name}
+                </PlaylistsSectionItem>
               ))
             }
           </PlaylistsSection>
@@ -44,7 +53,7 @@ console.log("APPLICATION PAGE")
         <FeedContainer>
           <Topbar />
           <Feed>
-          <Outlet />
+            <Outlet />
           </Feed>
         </FeedContainer>
       </HomeContainer>
