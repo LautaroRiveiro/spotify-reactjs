@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { Outlet, Navigate } from "react-router-dom"
+import { Outlet, Navigate, Link } from "react-router-dom"
 import { Navbar } from '../../components/Navbar'
 import { Topbar } from '../../components/Topbar'
 import { Player } from '../../components/Player'
@@ -29,7 +29,9 @@ console.log("APPLICATION PAGE")
     <HomeLayout>
       <HomeContainer>
         <Sidebar>
-          <Logo src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
+          <Link to="">
+            <Logo src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
+          </Link>
           <Navbar />
           <PlaylistsSection>
             {
