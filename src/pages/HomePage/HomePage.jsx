@@ -36,20 +36,20 @@ const HomePage = () => {
 
   const [playlists, setPlaylists] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
     spotifyApi.getCategoryPlaylists('dinner')
-    .then((data)=>{setPlaylists(data.playlists.items)})
+      .then((data) => { setPlaylists(data.playlists.items) })
     spotifyApi.getAvailableGenreSeeds()
-    .then((data)=>{console.log(data)})
-  },[])
+      .then((data) => { console.log(data) })
+  }, [])
 
   return (
     <FeedContainer>
       <Hello>Buenas noches!</Hello>
       <RecentGrid>
         {
-          playlists.slice(0, 6).map(({id, name, images})=>(
-            <RecentItem key={id} title={name} src={images[0].url} ></RecentItem>
+          playlists.slice(0, 6).map(({ id, name, images }) => (
+            <RecentItem key={id} id={id} title={name} src={images[0].url} />
           ))
         }
       </RecentGrid>

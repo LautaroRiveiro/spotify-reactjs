@@ -148,7 +148,7 @@ const PlaylistPage = () => {
   return (
     <PlaylistPageContainer>
       <PlaylistHeader>
-        <PlaylistHeaderCover src={playlist.images[1].url} alt="playlist-cover" />
+        <PlaylistHeaderCover src={playlist?.images[1]?.url} alt="playlist-cover" />
         <PlaylistHeaderInfo>
           <span>PLAYLIST</span>
           <h3>{playlist.name}</h3>

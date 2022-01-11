@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const RecentItemContainer = styled.div`
+const RecentItemContainer = styled(Link)`
   height: 75px;
   border-radius: 5px;
   display: flex;
@@ -9,6 +10,8 @@ const RecentItemContainer = styled.div`
   background-color: rgba(59, 55, 55, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: inherit;
 
   & span {
     padding-left: 1rem;
@@ -31,10 +34,10 @@ const RecentItemImage = styled.div`
   }
 `
 
-const RecentItem = ({ imgUrl, alt = 'recent-item-image', title, src }) => {
+const RecentItem = ({ imgUrl, alt = 'recent-item-image', title, src, id }) => {
 
   return (
-    <RecentItemContainer>
+    <RecentItemContainer to={"playlist/" + id}>
       <RecentItemImage>
         <img src={src} alt="imagen" />
       </RecentItemImage>
