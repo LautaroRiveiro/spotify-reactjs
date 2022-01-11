@@ -1,3 +1,5 @@
+@import-normalize;
+
 :root {
   --primary-color: #1DB954;
   --background-color: #191414;
