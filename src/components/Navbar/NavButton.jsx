@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Button = styled.div`
   transition: 200ms color ease-in;
@@ -7,6 +8,12 @@ const Button = styled.div`
   vertical-align: middle;
   padding: 0.5rem;
   cursor: pointer;
+
+  & a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
   & span:first-child {
     flex: 1 1 0;
   }
@@ -18,9 +25,13 @@ const Button = styled.div`
   }
 `
 
-const NavButton = ({ title, icon }) => {
+const NavButton = ({ title, icon, to }) => {
   return (
-    <Button> <span>{icon}</span> <span>{title}</span></Button>
+    <Link to={to}>
+        <Button>
+        <span>{icon}</span> <span>{title}</span>
+    </Button>
+      </Link>
   )
 }
 export default NavButton
