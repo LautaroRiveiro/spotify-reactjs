@@ -4,7 +4,7 @@ import { Navbar } from '../../components/Navbar'
 import { Player } from '../../components/Player'
 import { Topbar } from '../../components/Topbar'
 import spotifyApi, { getMyPlaylist } from '../../services/services'
-import { Feed, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, PlaylistsSectionItem } from './styles'
+import { FeedLayout, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, PlaylistsSectionItem } from './styles'
 
 const ApplicationPage = () => {
   console.log("APPLICATION PAGE")
@@ -52,9 +52,9 @@ const ApplicationPage = () => {
         </Sidebar>
         <FeedContainer>
           <Topbar />
-          <Feed>
+          <FeedLayout>
             <Outlet />
-          </Feed>
+          </FeedLayout>
         </FeedContainer>
       </HomeContainer>
       <Player />

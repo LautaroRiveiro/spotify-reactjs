@@ -4,7 +4,6 @@ import RecentItem from '../../components/RecentItem/RecentItem'
 import spotifyApi from '../../services/services'
 
 const FeedContainer = styled.div`
-  padding: 4rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   color: var(--text-accent-color);
@@ -40,6 +39,8 @@ const HomePage = () => {
   useEffect(()=>{
     spotifyApi.getCategoryPlaylists('dinner')
     .then((data)=>{setPlaylists(data.playlists.items)})
+    spotifyApi.getAvailableGenreSeeds()
+    .then((data)=>{console.log(data)})
   },[])
 
   return (

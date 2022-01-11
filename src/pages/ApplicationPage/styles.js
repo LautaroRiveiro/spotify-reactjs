@@ -61,7 +61,8 @@ export const FeedContainer = styled.section`
   position: relative;
 `
 
-export const Feed = styled.div`
+export const FeedLayout = styled.div`
+  padding: 4rem 1rem 0 1rem;
   flex-grow: 1;
   border: 1px solid var(--primary-color);
   height: 0; // WOOOW
