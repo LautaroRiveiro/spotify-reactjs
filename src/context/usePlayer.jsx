@@ -12,7 +12,9 @@ export const usePlayer = () => {
     state.setTrack(track)
     // TODO: Cuál es la diferencia con load?
     audioElement.src = track.preview_url
+        
     audioElement.play()
+    state.setIsPlaying(true)
   }
 
   const togglePlay = () => {

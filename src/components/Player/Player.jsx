@@ -9,25 +9,6 @@ const Player = () => {
   const [duration, setDuration] = useState(null)
   const [contador, setContador] = useState(0)
 
-  useEffect(() => {
-    console.log("USE EFFECT?")
-    spotifyApi.getTrack('3nfICwo20uiFdEGzgNUSrG')
-      .then((data) => {
-
-        player.load(data)
-
-        // audioElement.onloadedmetadata = () => {
-        //   setDuration(Math.round(audioElement.duration))
-        // };
-        // audioElement.onplay = (e) => {
-        //   setInterval(() => {
-        //     setContador((prev) => prev + 1)
-        //   }, 1000)
-        // }
-      })
-
-  }, [])
-
   return (
     <PlayerContainer>
       <CurrentTrackInfo>

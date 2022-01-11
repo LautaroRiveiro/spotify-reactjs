@@ -1,6 +1,7 @@
-import { useEffect, useState, Fragment } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import { usePlayer } from '../../context/usePlayer'
 import spotifyApi from '../../services/services'
 
 const PlaylistPageContainer = styled.div`
@@ -85,9 +86,20 @@ const TracklistRowAlbum = styled.div`
 `
 
 const Track = ({ data }) => {
+
+  const { load } = usePlayer()
+
+  const handlePlay = () => {
+    if (data.track.preview_url) {
+      load(data.track)
+    } else {
+      console.log("Reproducción no disponible")
+    }
+  }
+
   return (
     <>
-      <span>▶</span>
+      <span onClick={handlePlay}>▶</span>
       <div>
         <TracklistRowAlbum>
           <img src={data.track.album.images[1].url} alt="" width="50" />
@@ -158,17 +170,17 @@ const PlaylistPage = () => {
           <div>❤</div>
         </PlaylistBodyTopbar>
         <TracklistGrid>
-              <TracklistHeader>#</TracklistHeader>
-              <TracklistHeader>Título</TracklistHeader>
-              <TracklistHeader>Álbum</TracklistHeader>
-              <TracklistHeader>Fecha</TracklistHeader>
-              <TracklistHeader></TracklistHeader>
-              <TracklistHeader>🕒</TracklistHeader>
-              {
-                playlist.tracks.map((track) => (
-                  <Track data={track} key={track.track.id} />
-                ))
-              }
+          <TracklistHeader>#</TracklistHeader>
+          <TracklistHeader>Título</TracklistHeader>
+          <TracklistHeader>Álbum</TracklistHeader>
+          <TracklistHeader>Fecha</TracklistHeader>
+          <TracklistHeader></TracklistHeader>
+          <TracklistHeader>🕒</TracklistHeader>
+          {
+            playlist.tracks.map((track) => (
+              <Track data={track} key={track.track.id} />
+            ))
+          }
         </TracklistGrid>
       </PlaylistBody>
       {params.id}
