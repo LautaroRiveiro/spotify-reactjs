@@ -10,6 +10,7 @@ const StyledNavLink = styled(NavLink)`
   padding: 0.5rem;
   color: inherit;
   text-decoration: none;
+  font-weight: bolder;
 
   & span:first-child {
     flex: 1 1 0;
