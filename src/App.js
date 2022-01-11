@@ -3,12 +3,10 @@ import ApplicationPage from "./pages/ApplicationPage"
 import HomePage from "./pages/HomePage"
 import LoginPage from "./pages/LoginPage"
 import NotFoundPage from "./pages/NotFoundPage"
+import SearchPage from "./pages/SearchPage"
 import CallbackLogin from "./services/CallbackLogin"
 
 // TODO: Crear páginas
-const SearchPage = ()=>{
-  return <h1>BUSCAR</h1>
-}
 const CollectionPage = ()=>{
   return <h1>BIBLIOTECA</h1>
 }
