@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { usePlayer } from '../../context/usePlayer'
+import { millisToMinutesAndSeconds } from '../../helpers/helpers'
 import spotifyApi from '../../services/services'
 
 const PlaylistPageContainer = styled.div`
@@ -63,10 +64,15 @@ const TracklistGrid = styled.div`
   display: grid;
   grid-template-columns: 3rem 1fr 18rem 12rem 2rem 5rem;
   align-items: center;
-
+  row-gap: 0.5rem;
 `
 const TracklistHeader = styled.div`
   text-transform: uppercase;
+`
+
+const TracklistRowPlay = styled.span`
+  cursor: pointer;
+  color: var(--text-color);
 `
 
 const TracklistRowAlbum = styled.div`
@@ -85,7 +91,17 @@ const TracklistRowAlbum = styled.div`
   }
 `
 
-const Track = ({ data }) => {
+const TracklistRowContainer = styled.div`
+  display: contents;
+  cursor: pointer;
+  &:hover {
+    & ${TracklistRowPlay} {
+      color: var(--text-accent-color);
+    }
+  }
+`
+
+const TracklistRow = ({ data }) => {
 
   const { load } = usePlayer()
 
@@ -98,28 +114,28 @@ const Track = ({ data }) => {
   }
 
   return (
-    <>
-      <span onClick={handlePlay}>▶</span>
+    <TracklistRowContainer onClick={handlePlay}>
+      <TracklistRowPlay>▶</TracklistRowPlay>
       <div>
         <TracklistRowAlbum>
           <img src={data.track.album.images[1].url} alt="" width="50" />
           <div>
-            <span>Titulo</span>
-            <span>Artista</span>
+            <span>{data.track.name}</span>
+            <span>{data.track.artists.map(a=>a.name).join(", ")}</span>
           </div>
         </TracklistRowAlbum>
       </div>
       <span>
-        Album
+        {data.track.album.name}
       </span>
       <span>
-        28 oct 2020
+        {new Date(data.added_at).toLocaleDateString('es-ES', { day: "numeric", year:"numeric", month:"short"})}
       </span>
       <span>❤</span>
       <span>
-        1:23
+        {millisToMinutesAndSeconds(data.track.duration_ms)}
       </span>
-    </>
+    </TracklistRowContainer>
   )
 }
 
@@ -178,7 +194,7 @@ const PlaylistPage = () => {
           <TracklistHeader>🕒</TracklistHeader>
           {
             playlist.tracks.map((track) => (
-              <Track data={track} key={track.track.id} />
+              <TracklistRow data={track} key={track.track.id} />
             ))
           }
         </TracklistGrid>
