@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { Redirect } from "wouter"
+import { Navigate } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
 
 const CallbackLogin = () => {
 
   const { setUser } = useContext(AuthContext)
 
-  // TODO: Usar algun Location de wouter en vez de window
+  // TODO: Usar algun Location de react-router-dom en vez de window
   const access_token = window.location.hash.substr(1).split('&')
     .reduce((initial, hash) => {
       const [key, value] = hash.split('=')
@@ -20,10 +20,10 @@ const CallbackLogin = () => {
     // FIXME: Cómo manejar la relación token/user?
     // TODO: Reemplazar por un Usuario. Por ahora es un TOKEN
     setUser(access_token)
-    return <Redirect to="/" />
+    return <Navigate replace to="/" />
   } else {
     // TODO: Puede que haya fallado entonces manejar algún error
-    return <Redirect to="/login" />
+    return <Navigate replace to="/login" />
   }
   
 }
