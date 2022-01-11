@@ -1,13 +1,11 @@
 import { Routes, Route } from "react-router-dom"
 import ApplicationPage from "./pages/ApplicationPage"
+import HomePage from "./pages/HomePage"
 import LoginPage from "./pages/LoginPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import CallbackLogin from "./services/CallbackLogin"
 
 // TODO: Crear páginas
-const HomePage = ()=>{
-  return <h1>INICIO</h1>
-}
 const SearchPage = ()=>{
   return <h1>BUSCAR</h1>
 }
