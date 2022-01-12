@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/LautaroRiveiro/spotify-reactjs/static/css/main.df520a40.css",
-    "main.js": "/LautaroRiveiro/spotify-reactjs/static/js/main.ca3097bb.js",
-    "index.html": "/LautaroRiveiro/spotify-reactjs/index.html",
-    "main.df520a40.css.map": "/LautaroRiveiro/spotify-reactjs/static/css/main.df520a40.css.map",
-    "main.ca3097bb.js.map": "/LautaroRiveiro/spotify-reactjs/static/js/main.ca3097bb.js.map"
+    "main.css": "/spotify-reactjs/static/css/main.df520a40.css",
+    "main.js": "/spotify-reactjs/static/js/main.5678c62d.js",
+    "index.html": "/spotify-reactjs/index.html",
+    "main.df520a40.css.map": "/spotify-reactjs/static/css/main.df520a40.css.map",
+    "main.5678c62d.js.map": "/spotify-reactjs/static/js/main.5678c62d.js.map"
   },
   "entrypoints": [
     "static/css/main.df520a40.css",
-    "static/js/main.ca3097bb.js"
+    "static/js/main.5678c62d.js"
   ]
 }
