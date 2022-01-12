@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/spotify-reactjs/static/css/main.df520a40.css",
-    "main.js": "/spotify-reactjs/static/js/main.5678c62d.js",
+    "main.js": "/spotify-reactjs/static/js/main.36e7a431.js",
     "index.html": "/spotify-reactjs/index.html",
     "main.df520a40.css.map": "/spotify-reactjs/static/css/main.df520a40.css.map",
-    "main.5678c62d.js.map": "/spotify-reactjs/static/js/main.5678c62d.js.map"
+    "main.36e7a431.js.map": "/spotify-reactjs/static/js/main.36e7a431.js.map"
   },
   "entrypoints": [
     "static/css/main.df520a40.css",
-    "static/js/main.5678c62d.js"
+    "static/js/main.36e7a431.js"
   ]
 }
