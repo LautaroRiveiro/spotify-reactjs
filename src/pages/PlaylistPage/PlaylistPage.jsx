@@ -199,7 +199,6 @@ const PlaylistPage = () => {
           }
         </TracklistGrid>
       </PlaylistBody>
-      {params.id}
     </PlaylistPageContainer>
   )
 }

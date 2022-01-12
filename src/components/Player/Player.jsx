@@ -1,14 +1,40 @@
 import { useState } from 'react'
+import { useEffect } from 'react/cjs/react.development'
 import { usePlayer } from '../../context/usePlayer'
+import { millisToMinutesAndSeconds } from '../../helpers/helpers'
 import { CurrentTrackInfo, PlayerContainer, ProgressBar, ProgressBarContainer, ProgressBarFill, TrackControls, TrackControlsContainer } from './styles'
 
 const Player = () => {
 
   const player = usePlayer()
-  const [duration, setDuration] = useState(null)
   const [contador, setContador] = useState(0)
 
+  useEffect(() => {
+    let interval = null
+    const currentTime = player.currentTime()
+
+    if (player.isPlaying && currentTime <= player.duration) {
+      interval = setInterval(() => {
+        setContador(currentTime)
+      }, 200)
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval)
+      }
+    }
+  }, [player, contador])
+
   if (!player.current) return <></>
+
+  const handlePlay = () => {
+    player.togglePlay()
+  }
+
+  const handleLoop = () => {
+    player.toggleLoop()
+  }
 
   return (
     <PlayerContainer>
@@ -22,16 +48,15 @@ const Player = () => {
       </CurrentTrackInfo>
       <TrackControlsContainer>
         <TrackControls>
-          <span onClick={() => { console.log("play/pause"); player.togglePlay() }}>{player.isPlaying ? '⏸' : '▶'}</span>
-          <span onClick={() => { console.log("repeat"); player.toggleLoop() }}>🔁</span>
-          <span>{player.isLoop ? '◽' : '◾'}</span>
+          <span onClick={handlePlay}>{player.isPlaying ? '⏸' : '▶'}</span>
+          <span onClick={handleLoop}>🔁{player.isLoop ? '◽' : '◾'}</span>
         </TrackControls>
         <ProgressBarContainer>
-          <span>{contador}</span>
+          <span>{millisToMinutesAndSeconds(contador * 1000)}</span>
           <ProgressBar>
-            <ProgressBarFill percent={contador / duration * 100} />
+            <ProgressBarFill percent={contador / player.duration * 100} />
           </ProgressBar>
-          <span>{duration}</span>
+          <span>{millisToMinutesAndSeconds(player.duration * 1000)}</span>
         </ProgressBarContainer>
       </TrackControlsContainer>
       <div></div>

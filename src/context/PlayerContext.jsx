@@ -7,6 +7,7 @@ export const PlayerContextProvider = ({ children }) => {
   const [track, setTrack] = useState(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isLoop, setIsLoop] = useState(false)
+  const [duration, setDuration] = useState(0)
 
   const context = {
     track,
@@ -14,7 +15,9 @@ export const PlayerContextProvider = ({ children }) => {
     isPlaying,
     setIsPlaying,
     isLoop,
-    setIsLoop
+    setIsLoop,
+    duration,
+    setDuration
   }
 
   return (

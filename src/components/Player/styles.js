@@ -25,6 +25,7 @@ export const TrackControls = styled.div`
   margin-bottom: 0.5rem;
   & span {
     margin: 0 0.25rem;
+    cursor: pointer;
   }
 `
 
@@ -32,6 +33,11 @@ export const ProgressBarContainer = styled.div`
   display: flex;
   align-items: center;
   width: 35rem;
+
+  > span:first-child {
+    width: 3rem;
+    text-align: end;
+  }
 `
 
 export const ProgressBar = styled.div`

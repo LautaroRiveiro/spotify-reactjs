@@ -17,6 +17,10 @@ export const usePlayer = () => {
     state.setIsPlaying(true)
   }
 
+  audioElement.oncanplay = ()=>{
+    state.setDuration(audioElement.duration)
+  }
+
   const togglePlay = () => {
     if (state.isPlaying) {
       state.setIsPlaying(false)
@@ -32,12 +36,18 @@ export const usePlayer = () => {
     state.setIsLoop(!state.isLoop)
   }
 
+  const getCurrentTime = ()=>{
+    return audioElement.currentTime
+  }
+
   return {
     current: state.track,
     load,
     togglePlay,
     toggleLoop,
     isLoop: state.isLoop,
-    isPlaying: state.isPlaying
+    isPlaying: state.isPlaying,
+    duration: state.duration,
+    currentTime: getCurrentTime
   }
 }
