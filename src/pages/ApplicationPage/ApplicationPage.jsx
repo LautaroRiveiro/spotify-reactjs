@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom"
 import { Navbar } from '../../components/Navbar'
 import { Player } from '../../components/Player'
 import { Topbar } from '../../components/Topbar'
-import spotifyApi, { getMyPlaylist } from '../../services/services'
+import spotifyApi from '../../services/services'
 import { FeedLayout, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, PlaylistsSectionItem } from './styles'
 
 const ApplicationPage = () => {
@@ -16,7 +16,7 @@ const ApplicationPage = () => {
       .then((resp) => {
         console.log('getArtistAlbums', resp)
       })
-    getMyPlaylist()
+    spotifyApi.getMyPlaylists()
       .then((data) => {
         console.log('getMyPlaylist', data)
         setMyPlaylists(data.items)
