@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { AuthContext } from '../../context/AuthContext'
 
 const TopbarContainer = styled.div`
   position: absolute;
@@ -80,6 +82,7 @@ const User = styled.div`
 
 const Topbar = () => {
 
+  const { user: { display_name, images } } = useContext(AuthContext)
   const navigate = useNavigate()
   const handleBack = () => {
     navigate(-1)
@@ -100,8 +103,8 @@ const Topbar = () => {
       </Navigator>
 
       <User>
-        <img src="https://i.ytimg.com/vi/oohFPyjaDr0/maxresdefault.jpg" alt="user" />
-        <span>lautaro.91</span>
+        <img src={images[0]?.url || '/assets/images/avatar.jpg'} alt="user" />
+        <span>{display_name}</span>
       </User>
     </TopbarContainer>
   )
