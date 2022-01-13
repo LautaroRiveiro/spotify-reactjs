@@ -41,8 +41,8 @@ const getPlaylist = (id) => {
 const getHomePlaylists = () => {
 
   const calls = [
-    _spotifyApi.getFeaturedPlaylists({country:'AR', limit:4}),
-    _spotifyApi.getFeaturedPlaylists({country:'UY', limit:4}),
+    _spotifyApi.getFeaturedPlaylists({ country: 'AR', limit: 4 }),
+    _spotifyApi.getFeaturedPlaylists({ country: 'UY', limit: 4 }),
   ]
 
   return handlerError(Promise.all(calls).then(values => {
@@ -60,6 +60,10 @@ const getMyPlaylists = () => {
     .then((data) => data.json()))
 }
 
+const search = (text) => {
+  return handlerError(_spotifyApi.search(text, ['playlist','track']))
+}
+
 const spotifyApi = {
   setAccessToken,
   getUser,
@@ -68,7 +72,8 @@ const spotifyApi = {
   getAvailableGenreSeeds,
   getPlaylist,
   getMyPlaylists,
-  getHomePlaylists
+  getHomePlaylists,
+  search
 }
 
 export default spotifyApi

@@ -10,7 +10,6 @@ const Sidebar = () => {
   useEffect(() => {
     spotifyApi.getMyPlaylists()
       .then((data) => {
-        console.log('getMyPlaylist', data)
         setMyPlaylists(data.items)
       })
   }, [])
