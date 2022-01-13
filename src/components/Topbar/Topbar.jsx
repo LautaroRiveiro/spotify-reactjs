@@ -8,7 +8,7 @@ const TopbarContainer = styled.div`
   left: 0;
   right: 0;
   height: 50px;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   background-color: rgba(25, 20, 20,0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

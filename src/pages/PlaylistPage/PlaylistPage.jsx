@@ -11,7 +11,7 @@ const PlaylistPageContainer = styled.div`
   color: var(--text-accent-color);
 `
 const PlaylistHeader = styled.div`
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   height: 40vh;
   padding: 1rem;
   display: flex;
@@ -49,7 +49,7 @@ const PlaylistBody = styled.div`
   flex-direction: column;
 `
 const PlaylistBodyTopbar = styled.div`
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   padding: 1rem;
   display: flex;
 
@@ -59,7 +59,7 @@ const PlaylistBodyTopbar = styled.div`
   }
 `
 const TracklistGrid = styled.div`
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   padding: 1rem;
   display: grid;
   grid-template-columns: 3rem 1fr 18rem 12rem 2rem 5rem;
@@ -77,7 +77,7 @@ const TracklistRowPlay = styled.span`
 
 const TracklistRowAlbum = styled.div`
   display: flex;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   align-items: center;
 
   & div {

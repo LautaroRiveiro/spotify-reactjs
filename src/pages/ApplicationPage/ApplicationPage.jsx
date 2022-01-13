@@ -4,7 +4,7 @@ import { Navbar } from '../../components/Navbar'
 import { Player } from '../../components/Player'
 import { Topbar } from '../../components/Topbar'
 import spotifyApi from '../../services/services'
-import { FeedLayout, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, PlaylistsSectionItem } from './styles'
+import { FeedLayout, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, PlaylistsSectionItem, Separator } from './styles'
 
 const ApplicationPage = () => {
   console.log("APPLICATION PAGE")
@@ -39,7 +39,7 @@ const ApplicationPage = () => {
             <Logo src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
           </Link>
           <Navbar />
-          <hr />
+          <Separator />
           <PlaylistsSection>
             {
               myPlaylists.map(({id, name}) => (

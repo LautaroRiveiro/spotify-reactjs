@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 export const PlayerContainer = styled.footer`
   height: 75px;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 100%;
 
   & div {
-    border: 1px solid var(--primary-color);
+    border: var(--dev-border);
   }
 `
 

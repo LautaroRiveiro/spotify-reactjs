@@ -10,25 +10,32 @@ export const HomeLayout = styled.div`
 `
 
 export const Sidebar = styled.aside`
-  flex: 1 1 0;
-  border: 1px solid var(--primary-color);
+  flex: 0.9 1 0;
+  border: var(--dev-border);
   display: flex;
   flex-direction: column;
   background-color: var(--background-color-dark);
+  padding: 0 0.5rem;
 `
 
 export const Logo = styled.img`
   width: 80%;
   max-width: 150px;
-  padding: 1rem;
+  padding: 1.75rem 1rem;
+`
+
+export const Separator = styled.hr`
+  width: 90%;
+  border: 0.1px solid rgba(50,50,50,0.75);
 `
 
 export const PlaylistsSection = styled.section`
   flex-grow: 1;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   display:flex;
   flex-direction: column;
   height: 0;
+  padding: 0 0.5rem;
   overflow-y: overlay;
   &::-webkit-scrollbar {
     display: none;
@@ -36,7 +43,7 @@ export const PlaylistsSection = styled.section`
 `
 
 export const PlaylistsSectionItem = styled(Link)`
-  padding: 0.3rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   transition: 200ms color ease-in;
   color: inherit;
   text-decoration: none;
@@ -48,14 +55,14 @@ export const PlaylistsSectionItem = styled(Link)`
 
 export const HomeContainer = styled.main`
   flex-grow: 1;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   display: flex;
   flex-direction: row;
 `
 
 export const FeedContainer = styled.section`
   flex: 4 1 0;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -64,7 +71,7 @@ export const FeedContainer = styled.section`
 export const FeedLayout = styled.div`
   padding: 4rem 1rem 0 1rem;
   flex-grow: 1;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   height: 0; // WOOOW
   overflow-y: overlay;
   &::-webkit-scrollbar {

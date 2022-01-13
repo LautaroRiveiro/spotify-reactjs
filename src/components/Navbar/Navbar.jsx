@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { NavButton } from "."
 
 const NavbarContainer = styled.nav`
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
 `
 
 const Navbar = () => {

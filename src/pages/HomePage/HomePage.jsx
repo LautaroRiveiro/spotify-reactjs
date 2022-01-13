@@ -11,7 +11,7 @@ const FeedContainer = styled.div`
 `
 const Hello = styled.h1`
   margin: 0;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
 `
 
 const RecentGrid = styled.div`
@@ -19,7 +19,7 @@ const RecentGrid = styled.div`
   grid-template-columns: calc(33% - 1.33rem) calc(33% - 1.33rem) calc(33% - 1.33rem);
   row-gap: 1em;
   column-gap: 2rem;
-  border: 1px solid var(--primary-color);
+  border: var(--dev-border);
   margin: 1rem 0;
 `
 

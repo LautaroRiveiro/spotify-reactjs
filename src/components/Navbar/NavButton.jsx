@@ -7,13 +7,15 @@ const StyledNavLink = styled(NavLink)`
   display:flex;
   line-height: 1.2em;
   vertical-align: middle;
-  padding: 0.5rem;
+  padding: 1rem;
   color: inherit;
   text-decoration: none;
   font-weight: bolder;
 
   & span:first-child {
     flex: 1 1 0;
+    font-size: 1.5rem;
+    padding-right: 1rem;
   }
   & span {
     flex: 10 1 0;
