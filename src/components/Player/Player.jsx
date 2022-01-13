@@ -7,24 +7,24 @@ import { CurrentTrackInfo, PlayerContainer, ProgressBar, ProgressBarContainer, P
 const Player = () => {
 
   const player = usePlayer()
-  const [contador, setContador] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
 
   useEffect(() => {
-    let interval = null
-    const currentTime = player.currentTime()
-
-    if (player.isPlaying && currentTime <= player.duration) {
-      interval = setInterval(() => {
-        setContador(currentTime)
-      }, 200)
-    }
+    const interval = setInterval(() => {
+      setCurrentTime(player.currentTime())
+    }, 200)
 
     return () => {
-      if (interval) {
-        clearInterval(interval)
-      }
+      clearInterval(interval)
     }
-  }, [player, contador])
+  }, [player, currentTime])
+
+  useEffect(() => {
+    return () => {
+      player.stop()
+    }
+    // TODO: Está bien el enfoque? Cómo podría evitar el warning de la dependencia []
+  }, [])
 
   if (!player.current) return <></>
 
@@ -52,9 +52,9 @@ const Player = () => {
           <span onClick={handleLoop}>🔁{player.isLoop ? '◽' : '◾'}</span>
         </TrackControls>
         <ProgressBarContainer>
-          <span>{millisToMinutesAndSeconds(contador * 1000)}</span>
+          <span>{millisToMinutesAndSeconds(currentTime * 1000)}</span>
           <ProgressBar>
-            <ProgressBarFill percent={contador / player.duration * 100} />
+            <ProgressBarFill percent={currentTime / player.duration * 100} />
           </ProgressBar>
           <span>{millisToMinutesAndSeconds(player.duration * 1000)}</span>
         </ProgressBarContainer>

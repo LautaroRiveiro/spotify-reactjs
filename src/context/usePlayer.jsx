@@ -12,13 +12,20 @@ export const usePlayer = () => {
     state.setTrack(track)
     // TODO: Cuál es la diferencia con load?
     audioElement.src = track.preview_url
-        
     audioElement.play()
-    state.setIsPlaying(true)
   }
 
   audioElement.oncanplay = ()=>{
+    state.setIsPlaying(true)
     state.setDuration(audioElement.duration)
+  }
+
+  audioElement.onended = ()=>{
+    state.setIsPlaying(false)
+  }
+
+  const stop = ()=>{
+    audioElement.src = ""
   }
 
   const togglePlay = () => {
@@ -45,6 +52,7 @@ export const usePlayer = () => {
     load,
     togglePlay,
     toggleLoop,
+    stop,
     isLoop: state.isLoop,
     isPlaying: state.isPlaying,
     duration: state.duration,
