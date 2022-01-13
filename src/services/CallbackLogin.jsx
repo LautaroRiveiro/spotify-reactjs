@@ -5,15 +5,10 @@ import { AuthContext } from "../context/AuthContext"
 
 export const CallbackLogin = () => {
 
-  const { login, isLogged } = useContext(AuthContext)
+  const { login } = useContext(AuthContext)
   const location = useLocation()
 
-  // TODO: Es un re workaround para que no se dispare infinitamente, si no me parece que el login se actualiza antes del return null y entra siempre acá
-  if (isLogged) {
-    return <Navigate replace to="/" />
-  }
-
-  const access_token = location.hash.substr(1).split('&')
+  const access_token = location.hash.substring(1).split('&')
     .reduce((initial, hash) => {
       const [key, value] = hash.split('=')
       initial[key] = decodeURIComponent(value)

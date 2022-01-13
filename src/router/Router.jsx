@@ -21,7 +21,7 @@ const Router = () => {
         <Route path="playlist/:id" element={<PlaylistPage />} />
       </Route>
       <Route path="/login" element={<PublicRoute element={<LoginPage />} />} />
-      <Route path="/callback" element={<CallbackLogin />} />
+      <Route path="/callback" element={<PublicRoute element={<CallbackLogin />} />} />
       <Route path="/logout" element={<PrivateRoute element={<Logout />} />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
