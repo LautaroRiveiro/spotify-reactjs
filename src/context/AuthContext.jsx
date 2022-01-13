@@ -4,21 +4,49 @@ import spotifyApi from "../services/services"
 export const AuthContext = createContext()
 export const AuthContextProvider = ({children})=>{
 
-  let _user = null
+  const [ user, setUser ] = useState(null)
+  const [ isLogging, setIsLogging ] = useState(false)
   const access_token = JSON.parse(localStorage.getItem("access_token"))
-  if(access_token) {
+
+  if(access_token && !user && !isLogging) {
+    console.log("ENTRE")
     spotifyApi.setAccessToken(access_token.access_token)
-    // TODO: Traer al usuario
-    _user = access_token
+    setIsLogging(true)
+    spotifyApi.getUser()
+    .then((data)=>{
+      setUser(data)
+    })
+    .catch(e => {
+      console.log(e.status)
+      if (e.status === 401) {
+        localStorage.removeItem("access_token")
+      }
+    })
+    .finally(()=>{
+      console.log("finally")
+      setIsLogging(false)
+    })
   }
 
-  const [ user, setUser ] = useState(_user)
+  const setToken = (token)=>{
+    // TODO: Refactorizar
+    localStorage.setItem('access_token', JSON.stringify(token))
+    spotifyApi.setAccessToken(token.access_token)
+    spotifyApi.getUser()
+    .then((data)=>{
+      setUser(data)
+    })
+    // TODO: Qué pasa si mando un token a mano? Debería tener un catch como arriba
+  }
 
   const contextValue = {
     user,
-    setUser,
-    isLogged: !!user
+    isLogged: !!user,
+    isLogging,
+    setToken
   }
+
+  console.log("AUTH CONTEXT", contextValue)
 
   return (
     <AuthContext.Provider value={contextValue}>

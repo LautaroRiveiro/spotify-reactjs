@@ -1,31 +1,34 @@
 import { useContext } from "react"
-import { Navigate } from "react-router-dom"
+import { Navigate, useLocation } from "react-router-dom"
+import Loading from "../components/Loading"
 import { AuthContext } from "../context/AuthContext"
 
 const CallbackLogin = () => {
 
-  const { setUser } = useContext(AuthContext)
+  const { setToken, isLogged } = useContext(AuthContext)
+  const location = useLocation()
 
-  // TODO: Usar algun Location de react-router-dom en vez de window
-  const access_token = window.location.hash.substr(1).split('&')
+  console.log("isLogged", isLogged)
+  
+  // TODO: Es un re workaround para que no se dispare infinitamente, si no me parece que el setToken se actualiza antes del return null y entra siempre acá
+  if(isLogged) {
+    return <Navigate replace to="/" />
+  }
+
+  const access_token = location.hash.substr(1).split('&')
     .reduce((initial, hash) => {
       const [key, value] = hash.split('=')
       initial[key] = decodeURIComponent(value)
       return initial
     }, {})
   if (access_token.access_token) {
-    // TODO: Qué pasa si mando un token a mano?
-    // TODO: Refactorizar esta línea al AuthContext?
-    localStorage.setItem('access_token', JSON.stringify(access_token))
-    // FIXME: Cómo manejar la relación token/user?
-    // TODO: Reemplazar por un Usuario. Por ahora es un TOKEN
-    setUser(access_token)
-    return <Navigate replace to="/" />
+    setToken(access_token)
+    // TODO: Algo debería retornar aunque no sea un componente porque me tira un error por consola
+    return <Loading />
   } else {
-    // TODO: Puede que haya fallado entonces manejar algún error
     return <Navigate replace to="/login" />
   }
-  
+
 }
 
 export default CallbackLogin

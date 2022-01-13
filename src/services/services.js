@@ -18,6 +18,10 @@ const setAccessToken = (access_token) => {
   _spotifyApi.setAccessToken(access_token)
 }
 
+const getUser = () => {
+  return _spotifyApi.getMe()
+}
+
 const getArtistAlbums = (id) => {
   return handlerError(_spotifyApi.getArtistAlbums(id))
 }
@@ -46,6 +50,7 @@ const getMyPlaylists = () => {
 
 const spotifyApi = {
   setAccessToken,
+  getUser,
   getArtistAlbums,
   getCategoryPlaylists,
   getAvailableGenreSeeds,
