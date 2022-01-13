@@ -62,8 +62,8 @@ const HomePage = () => {
         <CategoryItem></CategoryItem>
       </CategoryList>
       {
-        recommendations.map((recommendation)=>(
-          <Recommendation title={recommendation.message} playlists={recommendation.playlists.items} />
+        recommendations.map((recommendation, index)=>(
+          <Recommendation key={index} title={recommendation.message} playlists={recommendation.playlists.items} />
         ))
       }
     </FeedContainer>

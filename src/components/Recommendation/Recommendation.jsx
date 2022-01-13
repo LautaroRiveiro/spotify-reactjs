@@ -57,7 +57,7 @@ const Recommendation = ({ title, playlists }) => {
       <RecommendationTitle>{title}</RecommendationTitle>
       {
         playlists.map((playlist) => (
-          <RecommendationCard class="card" to={"/playlist/" + playlist.id}>
+          <RecommendationCard key={playlist.id} to={"/playlist/" + playlist.id}>
             <img src={playlist.images[0]?.url} alt="playlist-cover" />
             <h4>{playlist.name}</h4>
             <span>{playlist.description}</span>
