@@ -1,11 +1,14 @@
 import { useContext } from "react"
+import { useEffect } from "react/cjs/react.development"
 import { AuthContext } from "../context/AuthContext"
 
 // TODO: Me parece un enfoque espantoso tener que crear un componente para poder usar el logout del hook
 export const Logout = () => {
   const { logout } = useContext(AuthContext)
 
-  logout()
+  useEffect(() => {
+    logout()
+  })
 
   return null
 }
