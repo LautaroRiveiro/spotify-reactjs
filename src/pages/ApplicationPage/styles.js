@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const HomeLayout = styled.div`
+export const ApplicationLayout = styled.div`
   background-color: var(--background-color);
   height: 100vh;
   display: flex;
   flex-direction: column;
   color: var(--text-color);
+`
+
+export const ApplicationContainer = styled.main`
+  flex-grow: 1;
+  border: var(--dev-border);
+  display: flex;
+  flex-direction: row;
 `
 
 export const Sidebar = styled.aside`
@@ -18,10 +25,15 @@ export const Sidebar = styled.aside`
   padding: 0 0.5rem;
 `
 
-export const Logo = styled.img`
-  width: 80%;
-  max-width: 150px;
-  padding: 1.75rem 1rem;
+export const Logo = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+
+  & img {
+    width: 80%;
+    max-width: 150px;
+    padding: 1.75rem 1rem;
+  }
 `
 
 export const Separator = styled.hr`
@@ -53,13 +65,6 @@ export const PlaylistsSectionItem = styled(Link)`
   }
 `
 
-export const HomeContainer = styled.main`
-  flex-grow: 1;
-  border: var(--dev-border);
-  display: flex;
-  flex-direction: row;
-`
-
 export const FeedContainer = styled.section`
   flex: 4 1 0;
   border: var(--dev-border);
@@ -68,7 +73,7 @@ export const FeedContainer = styled.section`
   position: relative;
 `
 
-export const FeedLayout = styled.div`
+export const OutletContainer = styled.div`
   padding: 4rem 1rem 0 1rem;
   flex-grow: 1;
   border: var(--dev-border);

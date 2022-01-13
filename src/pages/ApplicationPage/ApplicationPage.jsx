@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { Navbar } from '../../components/Navbar'
 import { Player } from '../../components/Player'
 import { Topbar } from '../../components/Topbar'
 import spotifyApi from '../../services/services'
-import { FeedLayout, FeedContainer, HomeContainer, HomeLayout, Logo, PlaylistsSection, Sidebar, PlaylistsSectionItem, Separator } from './styles'
+import { FeedContainer, OutletContainer, ApplicationContainer, ApplicationLayout, Logo, PlaylistsSection, PlaylistsSectionItem, Separator, Sidebar } from './styles'
 
 const ApplicationPage = () => {
-  console.log("APPLICATION PAGE")
-
   const [myPlaylists, setMyPlaylists] = useState([])
 
   useEffect(() => {
@@ -32,12 +30,12 @@ const ApplicationPage = () => {
   }, [])
 
   return (
-    <HomeLayout>
-      <HomeContainer>
+    <ApplicationLayout>
+      <ApplicationContainer>
         <Sidebar>
-          <Link to="">
-            <Logo src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
-          </Link>
+          <Logo to="">
+            <img src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
+          </Logo>
           <Navbar />
           <Separator />
           <PlaylistsSection>
@@ -52,13 +50,13 @@ const ApplicationPage = () => {
         </Sidebar>
         <FeedContainer>
           <Topbar />
-          <FeedLayout>
+          <OutletContainer>
             <Outlet />
-          </FeedLayout>
+          </OutletContainer>
         </FeedContainer>
-      </HomeContainer>
+      </ApplicationContainer>
       <Player />
-    </HomeLayout>
+    </ApplicationLayout>
   )
 }
 
