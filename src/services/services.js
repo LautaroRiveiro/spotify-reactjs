@@ -9,7 +9,7 @@ const handlerError = (cb) => {
     .catch(e => {
       console.log(e.status)
       if (e.status === 401) {
-        localStorage.removeItem("access_token")
+        window.history.pushState('/logout');
       }
     })
 }

@@ -7,6 +7,7 @@ import { NotFoundPage } from "../pages/NotFoundPage"
 import { PlaylistPage } from "../pages/PlaylistPage"
 import { SearchPage } from "../pages/SearchPage"
 import { CallbackLogin } from "../services/CallbackLogin"
+import { Logout } from "../services/Logout"
 import { PrivateRoute } from "./PrivateRoute"
 import { PublicRoute } from "./PublicRoute"
 
@@ -21,6 +22,7 @@ const Router = () => {
       </Route>
       <Route path="/login" element={<PublicRoute element={<LoginPage />} />} />
       <Route path="/callback" element={<CallbackLogin />} />
+      <Route path="/logout" element={<PrivateRoute element={<Logout />} />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )

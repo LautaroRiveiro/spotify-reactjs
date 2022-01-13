@@ -56,7 +56,7 @@ const Navigator = styled.div`
 `
 
 const User = styled.div`
-  width: 9rem;
+  max-width: 15rem;
   height: 70%;
   border: 1px solid black;
   border-radius: 50px;
@@ -80,6 +80,12 @@ const User = styled.div`
   }
 `
 
+const Logout = styled(Link)`
+  padding: 0.5rem;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+`
 const Topbar = () => {
 
   const { user: { display_name, images } } = useContext(AuthContext)
@@ -105,6 +111,7 @@ const Topbar = () => {
       <User>
         <img src={images[0]?.url || '/assets/images/avatar.jpg'} alt="user" />
         <span>{display_name}</span>
+        <Logout to="/logout">❎</Logout>
       </User>
     </TopbarContainer>
   )

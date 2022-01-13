@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import { NotFoundPageContainer, Logo, Title, Button } from './styles'
+import { Button, Logo, NotFoundPageContainer, Title } from './styles'
 
 const NotFoundPage = () => {
 
