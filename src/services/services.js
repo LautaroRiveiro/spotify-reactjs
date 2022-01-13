@@ -38,6 +38,18 @@ const getPlaylist = (id) => {
   return handlerError(_spotifyApi.getPlaylist(id))
 }
 
+const getHomePlaylists = () => {
+
+  const calls = [
+    _spotifyApi.getFeaturedPlaylists({country:'AR', limit:4}),
+    _spotifyApi.getFeaturedPlaylists({country:'UY', limit:4}),
+  ]
+
+  return handlerError(Promise.all(calls).then(values => {
+    return values
+  }));
+}
+
 const getMyPlaylists = () => {
   return handlerError(fetch('https://api.spotify.com/v1/me/playlists', {
     headers: new Headers({
@@ -56,6 +68,7 @@ const spotifyApi = {
   getAvailableGenreSeeds,
   getPlaylist,
   getMyPlaylists,
+  getHomePlaylists
 }
 
 export default spotifyApi
