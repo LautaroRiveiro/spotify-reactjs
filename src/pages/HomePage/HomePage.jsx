@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import RecentItem from '../../components/RecentItem/RecentItem'
+import Recommendation from '../../components/Recommendation/Recommendation'
 import spotifyApi from '../../services/services'
 
 const FeedContainer = styled.div`
@@ -35,12 +36,13 @@ const CategoryItem = styled.div`
 const HomePage = () => {
 
   const [playlists, setPlaylists] = useState([])
+  const [recommendations, setRecommendations] = useState([])
 
   useEffect(() => {
     spotifyApi.getCategoryPlaylists('dinner')
       .then((data) => { setPlaylists(data.playlists.items) })
-    spotifyApi.getAvailableGenreSeeds()
-      .then((data) => { console.log(data) })
+    spotifyApi.getHomePlaylists()
+      .then((data) => { setRecommendations(data) })
   }, [])
 
   return (
@@ -59,6 +61,11 @@ const HomePage = () => {
         <CategoryItem></CategoryItem>
         <CategoryItem></CategoryItem>
       </CategoryList>
+      {
+        recommendations.map((recommendation)=>(
+          <Recommendation title={recommendation.message} playlists={recommendation.playlists.items} />
+        ))
+      }
     </FeedContainer>
   )
 }
