@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { Navigate, useLocation } from "react-router-dom"
-import { Loading } from "../components/Loading"
+import { useEffect } from "react/cjs/react.development"
 import { AuthContext } from "../context/AuthContext"
 
 export const CallbackLogin = () => {
@@ -15,10 +15,14 @@ export const CallbackLogin = () => {
       return initial
     }, {})
 
+  useEffect(() => {
+    if (access_token.access_token) {
+      login(access_token)
+    }
+  })
+
   if (access_token.access_token) {
-    login(access_token)
-    // TODO: FIXME: Algo debería retornar aunque no sea un componente porque me tira un error por consola
-    return <Loading />
+    return null
   } else {
     return <Navigate replace to="/login" />
   }
