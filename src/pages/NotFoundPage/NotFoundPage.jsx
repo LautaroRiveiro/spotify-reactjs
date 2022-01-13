@@ -1,10 +1,14 @@
-import { NotFoundPageContainer } from './styles'
+import { Link } from 'react-router-dom'
+import { NotFoundPageContainer, Logo, Title, Button } from './styles'
 
 const NotFoundPage = () => {
 
   return (
     <NotFoundPageContainer>
-      404
+      <Logo src="/assets/icons/Spotify_Icon_RGB_Green.png" alt="logo" />
+      <Title>Página no encontrada</Title>
+      <p>No encontramos la página que buscas.</p>
+      <Button to="/" replace>Inicio</Button>
     </NotFoundPageContainer>
   )
 }
