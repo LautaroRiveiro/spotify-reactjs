@@ -4,8 +4,8 @@ import { AuthContext } from "./context/AuthContext"
 import Router from "./router/Router"
 
 function App() {
-  const state = useContext(AuthContext)
-  return state.isLogging
+  const { isLogging } = useContext(AuthContext)
+  return isLogging
     ? <Loading />
     : <Router />
 }

@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom"
 import Loading from "../components/Loading"
 import { AuthContext } from "../context/AuthContext"
 
-const CallbackLogin = () => {
+export const CallbackLogin = () => {
 
   const { setToken, isLogged } = useContext(AuthContext)
   const location = useLocation()
@@ -30,5 +30,3 @@ const CallbackLogin = () => {
   }
 
 }
-
-export default CallbackLogin
