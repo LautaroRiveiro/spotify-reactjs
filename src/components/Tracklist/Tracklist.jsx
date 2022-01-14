@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { usePlayer } from '../../context/usePlayer'
 import { millisToMinutesAndSeconds } from '../../helpers/helpers'
+import { Favourite } from '../Favourite'
 
 const TracklistGrid = styled.div`
   border: var(--dev-border);
@@ -9,10 +10,10 @@ const TracklistGrid = styled.div`
 
   ${props => props.search ?
     css`
-      grid-template-columns: 3rem 1fr 18rem 2rem 5rem;
+      grid-template-columns: 3rem 1fr 18rem 3rem 5rem;
     ` :
     css`
-      grid-template-columns: 3rem 1fr 18rem 12rem 2rem 5rem;
+      grid-template-columns: 3rem 1fr 18rem 12rem 3rem 5rem;
     `
   }
 
@@ -88,7 +89,7 @@ const TracklistRow = ({ data, search }) => {
           </span>
         )
       }
-      <span>❤</span>
+      <Favourite track={data.track} />
       <span>
         {millisToMinutesAndSeconds(data.track.duration_ms)}
       </span>

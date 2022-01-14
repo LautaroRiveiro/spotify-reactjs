@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { useEffect } from 'react/cjs/react.development'
+import { useEffect, useState } from 'react'
 import { usePlayer } from '../../context/usePlayer'
 import { millisToMinutesAndSeconds } from '../../helpers/helpers'
+import { Favourite } from '../Favourite'
 import { CurrentTrackInfo, PlayerContainer, ProgressBar, ProgressBarContainer, ProgressBarFill, TrackControls, TrackControlsContainer } from './styles'
 
 const Player = () => {
@@ -44,7 +44,7 @@ const Player = () => {
           <span>{player.current.name}</span>
           <span>{player.current.artists.map(a => a.name).join(", ")}</span>
         </div>
-        <span>❤</span>
+        <Favourite track={player.current} />
       </CurrentTrackInfo>
       <TrackControlsContainer>
         <TrackControls>

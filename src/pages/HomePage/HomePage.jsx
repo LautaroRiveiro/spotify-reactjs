@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import RecentItem from '../../components/RecentItem/RecentItem'
-import PlaylistGrid from '../../components/Recommendation/PlaylistGrid'
+import { PlaylistGrid } from '../../components/PlaylistGrid'
 import spotifyApi from '../../services/services'
 
 const FeedContainer = styled.div`
@@ -47,7 +47,7 @@ const HomePage = () => {
         }
       </RecentGrid>
       {
-        recommendations.map((recommendation, index)=>(
+        recommendations.map((recommendation, index) => (
           <PlaylistGrid key={index} title={recommendation.message} playlists={recommendation.playlists.items} />
         ))
       }

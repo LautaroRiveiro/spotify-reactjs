@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import PlaylistGrid from '../../components/Recommendation/PlaylistGrid'
+import { PlaylistGrid } from '../../components/PlaylistGrid'
 import { Tracklist } from "../../components/Tracklist"
 import spotifyApi from '../../services/services'
 import { CategoryItem, CategoryList, SearchPageContainer } from './styles'
