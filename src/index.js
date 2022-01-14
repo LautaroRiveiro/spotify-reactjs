@@ -8,7 +8,7 @@ import { PlayerContextProvider } from './context/PlayerContext'
 
 ReactDOM.render(
   <AuthContextProvider>
-    <BrowserRouter basename={process.env.REATCT_APP_ROUTER_BASENAME}>
+    <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASENAME}>
       <PlayerContextProvider>
         <App />
       </PlayerContextProvider>
