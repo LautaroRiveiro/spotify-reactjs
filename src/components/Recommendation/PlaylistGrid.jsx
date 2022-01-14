@@ -15,7 +15,7 @@ const RecommendationTitle = styled.h3`
   grid-column-end: 5;
 `
 
-const Recommendation = ({ title, playlists }) => {
+const PlaylistGrid = ({ title, playlists }) => {
   return (
     <RecommendationContainer>
       <RecommendationTitle>{title}</RecommendationTitle>
@@ -28,4 +28,4 @@ const Recommendation = ({ title, playlists }) => {
   )
 }
 
-export default Recommendation
+export default PlaylistGrid

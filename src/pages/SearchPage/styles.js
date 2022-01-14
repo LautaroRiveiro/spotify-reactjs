@@ -5,3 +5,11 @@ export const SearchPageContainer = styled.div`
   flex-direction: column;
   color: var(--text-accent-color);
 `
+
+export const CategoryList = styled.div`
+  margin: 0;
+`
+
+export const CategoryItem = styled.div`
+  margin: 0;
+`
