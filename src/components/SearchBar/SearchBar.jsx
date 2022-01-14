@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import styled from 'styled-components'
-import spotifyApi from '../../services/services'
 
 const FilterContainer = styled.div`
   flex: 1;
@@ -42,23 +42,24 @@ const SearchBox = styled.input`
 
 const SearchBar = () => {
 
-  const [text, setText] = useState('')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const filter = searchParams.get("filter") ?? ''
+  const [text, setText] = useState(filter)
+
 
   useEffect(() => {
 
     const t = setTimeout(() => {
-      spotifyApi.search(text)
-        .then(data => {
-          // TODO: Mover a un estado o bien guardar el estado en AppPage (pero está muy lejos el nodo)
-          console.log({ data })
-        })
+      if (filter !== text) {
+        setSearchParams({ filter: text })
+      }
     }, 1000)
 
     return () => {
       clearInterval(t)
     }
 
-  }, [text])
+  }, [text, setSearchParams, filter])
 
   const handleChange = (e) => {
     setText(e.target.value)
