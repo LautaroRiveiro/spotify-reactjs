@@ -60,6 +60,17 @@ const getMyPlaylists = () => {
     .then((data) => data.json()))
 }
 
+const getBrowseCategories = () => {
+  return handlerError(fetch('https://api.spotify.com/v1/browse/categories', {
+    headers: new Headers({
+      'Authorization': 'Bearer ' + _spotifyApi.getAccessToken(),
+      'Content-Type': 'application/json'
+    })
+  })
+    .then((data) => data.json()))
+    .then((data) => data.categories.items)
+}
+
 const search = (text) => {
   return handlerError(_spotifyApi.search(text, ['playlist','track']))
 }
@@ -69,6 +80,7 @@ const spotifyApi = {
   getUser,
   getArtistAlbums,
   getCategoryPlaylists,
+  getBrowseCategories,
   getAvailableGenreSeeds,
   getPlaylist,
   getMyPlaylists,

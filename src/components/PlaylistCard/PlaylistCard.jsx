@@ -29,13 +29,15 @@ const PlaylistCardContainer = styled(Link)`
 
   & h4 {
     margin: 1rem 0 0.5rem 0;
-    color: white;
+    color: var(--text-accent-color);
     font-weight: bold;
   }
 
   & span {
     font-weight: lighter;
-    color: gainsboro;
+    color: var(--text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `
 

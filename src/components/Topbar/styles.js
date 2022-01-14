@@ -15,6 +15,7 @@ export const TopbarContainer = styled.div`
   align-items: center;
   padding: 0 1rem;
   color: var(--color-accent-text);
+  z-index: 10;
 
   /* & div {
     background-color: rgba(25, 20, 20,0.9);
