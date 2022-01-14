@@ -9,7 +9,7 @@ const handlerError = (cb) => {
     .catch(e => {
       console.log(e.status)
       if (e.status === 401) {
-        window.history.pushState('/logout');
+        window.location = "/logout"
       }
     })
 }
