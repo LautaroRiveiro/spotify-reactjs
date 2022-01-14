@@ -12,6 +12,11 @@ const Player = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(player.currentTime())
+
+      // TODO: Limpiar cuando termine
+      // if(!player.isPlaying && player.currentTime >= currentTime) {
+      //   console.log("TERMINO, VOLVER A CERO TIEMPO Y BARRA")
+      // }
     }, 200)
 
     return () => {

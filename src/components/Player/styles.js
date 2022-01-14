@@ -51,7 +51,7 @@ export const ProgressBarFill = styled.span`
   height: 3px;
   background-color: var(--text-accent-color);
   border-radius: 5px;
-  transition: width 500ms ease-in-out;
+  transition: width 200ms ease-in;
 
   width: ${props => `${props.percent}%`};
   max-width: 100%;

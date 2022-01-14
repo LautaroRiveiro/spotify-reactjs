@@ -46,6 +46,7 @@ const PlaylistHeaderInfoDetails = styled.div`
 const PlaylistBody = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
 `
 const PlaylistBodyTopbar = styled.div`
   border: var(--dev-border);
@@ -100,10 +101,10 @@ const PlaylistPage = () => {
         </PlaylistHeaderInfo>
       </PlaylistHeader>
       <PlaylistBody>
-        <PlaylistBodyTopbar>
+        {/* <PlaylistBodyTopbar>
           <div>▶</div>
           <div>❤</div>
-        </PlaylistBodyTopbar>
+        </PlaylistBodyTopbar> */}
         <Tracklist tracks={playlist.tracks} />
       </PlaylistBody>
     </PlaylistPageContainer>
