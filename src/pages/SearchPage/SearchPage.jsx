@@ -1,27 +1,40 @@
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import RecentItem from '../../components/RecentItem/RecentItem'
+import { useSearchParams } from 'react-router-dom'
+import Recommendation from '../../components/Recommendation/Recommendation'
+import { Tracklist } from "../../components/Tracklist"
 import spotifyApi from '../../services/services'
+import { SearchPageContainer } from './styles'
 
-const FeedContainer = styled.div`
-  padding: 4rem 2rem 2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  color: var(--text-accent-color);
-`
 const SearchPage = () => {
 
-  const [genres, setGenres] = useState([])
+  const [results, setResults] = useState(null)
+  const [searchParams] = useSearchParams()
 
-  useEffect(()=>{
-    spotifyApi.getAvailableGenreSeeds()
-    .then((data)=>{setGenres(data.genres)})
-  },[])
+  useEffect(() => {
+    const filter = searchParams.get("filter")
+    if (filter) {
+      spotifyApi.search(filter)
+        .then((data) => {
+          setResults(data)
+        })
+    } else {
+      if (results) {
+        setResults(null)
+      }
+    }
+  }, [searchParams])
+
+
+  if (!results) return <h2>TODO: Recomendaciones</h2>
 
   return (
-    <FeedContainer>
-      Buscar
-    </FeedContainer>
+    <SearchPageContainer>
+      <h2>Canciones</h2>
+      <Tracklist search tracks={results.tracks.items.map((track) => {
+        return { track }
+      })} />
+      <Recommendation title={"Playlists"} playlists={results.playlists.items} />
+    </SearchPageContainer>
   )
 }
 

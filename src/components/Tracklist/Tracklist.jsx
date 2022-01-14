@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { usePlayer } from '../../context/usePlayer'
 import { millisToMinutesAndSeconds } from '../../helpers/helpers'
 
@@ -6,7 +6,16 @@ const TracklistGrid = styled.div`
   border: var(--dev-border);
   padding: 1rem;
   display: grid;
-  grid-template-columns: 3rem 1fr 18rem 12rem 2rem 5rem;
+
+  ${props => props.search ?
+    css`
+      grid-template-columns: 3rem 1fr 18rem 2rem 5rem;
+    ` :
+    css`
+      grid-template-columns: 3rem 1fr 18rem 12rem 2rem 5rem;
+    `
+  }
+
   align-items: center;
   row-gap: 0.5rem;
 `
@@ -45,7 +54,7 @@ const TracklistRowContainer = styled.div`
   }
 `
 
-const TracklistRow = ({ data }) => {
+const TracklistRow = ({ data, search }) => {
 
   const { load } = usePlayer()
 
@@ -72,9 +81,13 @@ const TracklistRow = ({ data }) => {
       <span>
         {data.track.album.name}
       </span>
-      <span>
-        {new Date(data.added_at).toLocaleDateString('es-ES', { day: "numeric", year: "numeric", month: "short" })}
-      </span>
+      {
+        !search && (
+          <span>
+            {new Date(data.added_at).toLocaleDateString('es-ES', { day: "numeric", year: "numeric", month: "short" })}
+          </span>
+        )
+      }
       <span>❤</span>
       <span>
         {millisToMinutesAndSeconds(data.track.duration_ms)}
@@ -83,19 +96,25 @@ const TracklistRow = ({ data }) => {
   )
 }
 
-const Tracklist = ({ tracks }) => {
+const Tracklist = ({ tracks, search }) => {
 
   return (
-    <TracklistGrid>
-      <TracklistHeader>#</TracklistHeader>
-      <TracklistHeader>Título</TracklistHeader>
-      <TracklistHeader>Álbum</TracklistHeader>
-      <TracklistHeader>Fecha</TracklistHeader>
-      <TracklistHeader></TracklistHeader>
-      <TracklistHeader>🕒</TracklistHeader>
+    <TracklistGrid search={search}>
+      {
+        !search && (
+          <>
+            <TracklistHeader>#</TracklistHeader>
+            <TracklistHeader>Título</TracklistHeader>
+            <TracklistHeader>Álbum</TracklistHeader>
+            <TracklistHeader>Fecha</TracklistHeader>
+            <TracklistHeader></TracklistHeader>
+            <TracklistHeader>🕒</TracklistHeader>
+          </>
+        )
+      }
       {
         tracks.map((track) => (
-          <TracklistRow data={track} key={track.track.id} />
+          <TracklistRow data={track} key={track.track.id} search={search} />
         ))
       }
     </TracklistGrid>
