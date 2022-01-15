@@ -41,7 +41,7 @@ const Topbar = () => {
       </Navigator>
       <TopbarCenterElement />
       <User>
-        <img src={images[0]?.url || '/assets/images/avatar.jpg'} alt="user" />
+        <img src={images[0]?.url || './assets/images/avatar.jpg'} alt="user" />
         <span>{display_name}</span>
         <Logout to="/logout">❎</Logout>
       </User>
