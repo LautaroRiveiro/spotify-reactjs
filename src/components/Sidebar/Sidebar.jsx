@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <Logo to="">
-        <img src="/assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
+        <img src="./assets/logos/Spotify_Logo_RGB_White.png" alt="logo" />
       </Logo>
       <Navbar />
       <Separator />

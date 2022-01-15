@@ -11,7 +11,7 @@ const LoginPage = () => {
 
   return (
     <LoginContainer>
-      <img src="/assets/logos/Spotify_Logo_RGB_Green.png" alt="logo" />
+      <img src="./assets/logos/Spotify_Logo_RGB_Green.png" alt="logo" />
       <LoginButton href={LOGIN_URL}> Ingresar con Spotify </LoginButton>
     </LoginContainer>
   )
