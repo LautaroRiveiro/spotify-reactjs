@@ -14,3 +14,18 @@ export const millisToMinutesAndSeconds = (millis) => {
   var seconds = ((millis % 60000) / 1000).toFixed(0)
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds
 }
+
+export const getGreeting = () => {
+  const today = new Date(Date.now())
+  const hours = today.getHours()
+  switch (true) {
+    case (hours < 6):
+      return "¡Buenas noches!"
+    case (hours < 13):
+      return "¡Buenos días!"
+    case (hours < 21):
+      return "¡Buenas tardes!"
+    default:
+      return "¡Buenas noches!"
+  }
+}

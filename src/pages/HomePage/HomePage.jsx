@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import RecentItem from '../../components/RecentItem/RecentItem'
 import { PlaylistGrid } from '../../components/PlaylistGrid'
+import RecentItem from '../../components/RecentItem/RecentItem'
+import { getGreeting } from '../../helpers/helpers'
 import spotifyApi from '../../services/services'
 
 const FeedContainer = styled.div`
@@ -38,7 +39,7 @@ const HomePage = () => {
 
   return (
     <FeedContainer>
-      <Hello>Buenas noches!</Hello>
+      <Hello>{getGreeting()}</Hello>
       <RecentGrid>
         {
           playlists.slice(0, 6).map(({ id, name, images }) => (
