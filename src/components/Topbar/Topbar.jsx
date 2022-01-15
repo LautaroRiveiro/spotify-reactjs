@@ -19,13 +19,10 @@ const Topbar = () => {
 
   const TopbarCenterElement = () => {
     const path = location.pathname.split("/")[1]
-    switch (path) {
-      case 'search':
-        return <SearchBar/>
-      case 'favourites':
-        return <h1>Favs</h1>
-      default:
-        return null
+    if (path === 'search') {
+      return <SearchBar />
+    } else {
+      return null
     }
   }
 
