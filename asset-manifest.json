@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "https://lautaroriveiro.github.io/spotify-reactjs/static/css/main.b1dd5718.css",
-    "main.js": "https://lautaroriveiro.github.io/spotify-reactjs/static/js/main.13e28f5a.js",
+    "main.js": "https://lautaroriveiro.github.io/spotify-reactjs/static/js/main.c89cbe7f.js",
     "index.html": "https://lautaroriveiro.github.io/spotify-reactjs/index.html",
     "main.b1dd5718.css.map": "https://lautaroriveiro.github.io/spotify-reactjs/static/css/main.b1dd5718.css.map",
-    "main.13e28f5a.js.map": "https://lautaroriveiro.github.io/spotify-reactjs/static/js/main.13e28f5a.js.map"
+    "main.c89cbe7f.js.map": "https://lautaroriveiro.github.io/spotify-reactjs/static/js/main.c89cbe7f.js.map"
   },
   "entrypoints": [
     "static/css/main.b1dd5718.css",
-    "static/js/main.13e28f5a.js"
+    "static/js/main.c89cbe7f.js"
   ]
 }
