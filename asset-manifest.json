@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "http://localhost:3000/callback/static/css/main.b1dd5718.css",
-    "main.js": "http://localhost:3000/callback/static/js/main.bb5bb965.js",
-    "index.html": "http://localhost:3000/callback/index.html",
-    "main.b1dd5718.css.map": "http://localhost:3000/callback/static/css/main.b1dd5718.css.map",
-    "main.bb5bb965.js.map": "http://localhost:3000/callback/static/js/main.bb5bb965.js.map"
+    "main.css": "https://lautaroriveiro.github.io/spotify-reactjs/static/css/main.b1dd5718.css",
+    "main.js": "https://lautaroriveiro.github.io/spotify-reactjs/static/js/main.d646328b.js",
+    "index.html": "https://lautaroriveiro.github.io/spotify-reactjs/index.html",
+    "main.b1dd5718.css.map": "https://lautaroriveiro.github.io/spotify-reactjs/static/css/main.b1dd5718.css.map",
+    "main.d646328b.js.map": "https://lautaroriveiro.github.io/spotify-reactjs/static/js/main.d646328b.js.map"
   },
   "entrypoints": [
     "static/css/main.b1dd5718.css",
-    "static/js/main.bb5bb965.js"
+    "static/js/main.d646328b.js"
   ]
 }
