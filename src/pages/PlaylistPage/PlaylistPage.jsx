@@ -48,16 +48,16 @@ const PlaylistBody = styled.div`
   flex-direction: column;
   padding-top: 1rem;
 `
-const PlaylistBodyTopbar = styled.div`
-  border: var(--dev-border);
-  padding: 1rem;
-  display: flex;
+// const PlaylistBodyTopbar = styled.div`
+//   border: var(--dev-border);
+//   padding: 1rem;
+//   display: flex;
 
-  & div {
-    margin-right: 1rem;
-    font-size: 2rem;
-  }
-`
+//   & div {
+//     margin-right: 1rem;
+//     font-size: 2rem;
+//   }
+// `
 
 const PlaylistPage = () => {
 
