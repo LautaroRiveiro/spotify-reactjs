@@ -1,6 +1,5 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { Navigate, useLocation } from "react-router-dom"
-import { useEffect } from "react/cjs/react.development"
 import { AuthContext } from "../context/AuthContext"
 
 export const CallbackLogin = () => {
