@@ -8,7 +8,7 @@ const TracklistGrid = styled.div`
   padding: 1rem;
   display: grid;
 
-  ${props => props.search ?
+  ${props => props.reduced ?
     css`
       grid-template-columns: 3rem 1fr 18rem 3rem 5rem;
     ` :
@@ -55,7 +55,7 @@ const TracklistRowContainer = styled.div`
   }
 `
 
-const TracklistRow = ({ data, search }) => {
+const TracklistRow = ({ data, reduced }) => {
 
   const { load } = usePlayer()
 
@@ -83,7 +83,7 @@ const TracklistRow = ({ data, search }) => {
         {data.track.album.name}
       </span>
       {
-        !search && (
+        !reduced && (
           <span>
             {new Date(data.added_at).toLocaleDateString('es-ES', { day: "numeric", year: "numeric", month: "short" })}
           </span>
@@ -97,12 +97,12 @@ const TracklistRow = ({ data, search }) => {
   )
 }
 
-const Tracklist = ({ tracks, search }) => {
+const Tracklist = ({ tracks, reduced }) => {
 
   return (
-    <TracklistGrid search={search}>
+    <TracklistGrid reduced={reduced}>
       {
-        !search && (
+        !reduced && (
           <>
             <TracklistHeader>#</TracklistHeader>
             <TracklistHeader>Título</TracklistHeader>
@@ -115,7 +115,7 @@ const Tracklist = ({ tracks, search }) => {
       }
       {
         tracks.map((track) => (
-          <TracklistRow data={track} key={track.track.id} search={search} />
+          <TracklistRow data={track} key={track.track.id} reduced={reduced} />
         ))
       }
     </TracklistGrid>

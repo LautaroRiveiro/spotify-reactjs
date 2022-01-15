@@ -54,7 +54,7 @@ const SearchPage = () => {
   return (
     <SearchPageContainer>
       <h2>Canciones</h2>
-      <Tracklist search tracks={results.tracks.items.map((track) => {
+      <Tracklist reduced tracks={results.tracks.items.map((track) => {
         return { track }
       })} />
       <PlaylistGrid title={"Playlists"} playlists={results.playlists.items} />

@@ -30,7 +30,7 @@ const CollectionPage = () => {
       <h1>
         Colecciones
       </h1>
-      <Tracklist tracks={favs.map(track => { return { track } })} search />
+      <Tracklist tracks={favs.map(track => { return { track } })} reduced />
     </CollectionPageContainer>
   )
 }
