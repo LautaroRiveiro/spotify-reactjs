@@ -14,6 +14,6 @@ Proyecto basado en [Aprende a programar un Clon de Spotify con REACT JS](https:/
 [https://lautaroriveiro.github.io/spotify-reactjs](https://lautaroriveiro.github.io/spotify-reactjs)
 
 ## Comandos
-*** Instalar dependencias: *** npm install
-*** Desarrollo: *** npm run start
-*** Deploy a Github Pages: *** npm run deploy
+- **Instalar dependencias:** npm install
+- **Desarrollo:** npm run start
+- **Deploy a Github Pages:** npm run deploy
